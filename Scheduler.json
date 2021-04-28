@@ -5,16 +5,16 @@
             "httpVMDiskIOPS": {
                 "inputs": {
                     "authentication": {
-                        "audience": "https://nzautofunc2.azurewebsites.net",
+                        "audience": "https://[FUNCTIONNAME].azurewebsites.net",
                         "type": "ManagedServiceIdentity"
                     },
                     "body": {
-                        "DiskName": "nzdemovm_DataDisk_0",
+                        "DiskName": "[DISKNAME]",
                         "IOPS": 100,
-                        "ResourceGroupName": "nzdiskauto-rg"
+                        "ResourceGroupName": "[RESOURCEGROUP]"
                     },
                     "function": {
-                        "id": "/subscriptions/03228871-7f68-4594-b208-2d8207a65428/resourceGroups/nzdiskauto-rg/providers/Microsoft.Web/sites/nzautofunc2/functions/httpVMDiskIOPS"
+                        "id": "/subscriptions/[SUBSCRIPTIONID]/resourceGroups/[RESOURCEGROUP]/providers/Microsoft.Web/sites/[FUNCTIONNAME]/functions/httpVMDiskIOPS"
                     },
                     "method": "POST"
                 },

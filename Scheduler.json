@@ -1,0 +1,48 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "httpVMDiskIOPS": {
+                "inputs": {
+                    "authentication": {
+                        "audience": "https://nzautofunc2.azurewebsites.net",
+                        "type": "ManagedServiceIdentity"
+                    },
+                    "body": {
+                        "DiskName": "nzdemovm_DataDisk_0",
+                        "IOPS": 100,
+                        "ResourceGroupName": "nzdiskauto-rg"
+                    },
+                    "function": {
+                        "id": "/subscriptions/03228871-7f68-4594-b208-2d8207a65428/resourceGroups/nzdiskauto-rg/providers/Microsoft.Web/sites/nzautofunc2/functions/httpVMDiskIOPS"
+                    },
+                    "method": "POST"
+                },
+                "runAfter": {},
+                "type": "Function"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {},
+        "triggers": {
+            "Recurrence": {
+                "recurrence": {
+                    "frequency": "Day",
+                    "interval": 1,
+                    "schedule": {
+                        "hours": [
+                            "7"
+                        ],
+                        "minutes": [
+                            0
+                        ]
+                    },
+                    "timeZone": "Central Standard Time"
+                },
+                "type": "Recurrence"
+            }
+        }
+    },
+    "parameters": {}
+}
